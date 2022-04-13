@@ -1,5 +1,0 @@
-Were not able to make much progress
-Still having the same issue with the raw queries
-may be something with the import statement
-tried to join office hours but wasn't able to
-send professor an email about the errors

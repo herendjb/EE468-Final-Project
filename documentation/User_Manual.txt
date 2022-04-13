@@ -1,0 +1,17 @@
+1. Login Page
+   1. Enter username
+   2. Enter password
+2. Logged in as Admin
+   1. Click ‘professors’ get pop up with options 
+      1. Name: gets a table of professors sorted by name
+      2. Department: gets a table of professors sorted by department
+      3. Salary: gets a table of professors sorted by salary
+   2. Click ‘salaries’ button to get a table of min/max/average salaries by dept
+   3. Click ‘professor’s workload’ button to get a table of professor name, dept, and total number of students taught by the professor in a given semester
+3. Logged in as a professor
+   1. Click ‘courses’ to get a table of course sections and the number of students enrolled in each section that the professor taught in a given semester
+   2. Click ‘students’ to get a list of students enrolled in a course section taught by the professor in a given semester
+4. Logged in as Student
+   1. Click ‘courses’ to list of course sections offered by dept in a given semester and year
+5. Logout
+   1. Logout button in top right if logged in as any user

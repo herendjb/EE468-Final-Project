@@ -1,0 +1,6 @@
+tried to run raw queries through the views.py file.
+
+kept getting the error:
+RuntimeError: Model class polls.models.Student doesn't declare an explicit app_label and isn't in an application in INSTALLED_APPS.
+
+after trying to run the server

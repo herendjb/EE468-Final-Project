@@ -1,0 +1,24 @@
+1. User login options
+   1. Admin
+      1. Username: Admin
+      2. Password: 123
+   2. Professor
+      1. Unique username and password for each professor
+   3. Student
+      1. Username: Student
+      2. Password: 12345
+2. Admin Logs in, can do:
+   1. Create a list of professors sorted by
+      1. Name
+      2. Dept
+      3. Salary
+   2. Create a table of min/max/average salaries by dept
+   3. Create a table of professor name, dept, and total number of students taught by the professor in a given semester
+3. Professor Logs in, can do
+   1. Create the list of course sections and the number of students enrolled in each section that the professor taught in a given semester
+   2. Create the list of students enrolled in a course section taught by the professor in a given semester
+4. Student Logs in, can do
+   1. Query the list of course sections offered by dept in a given semester and year.
+5. Logout
+   1. Logout option available once logged in for any user
+   2. Logging out returns to login page
