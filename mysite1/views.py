@@ -1,12 +1,9 @@
 from django.http import HttpResponse
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index. <br> at the next line")
+    return HttpResponse("Hello, world.")
 
-def index2(request):
-    return HttpResponse("Hello, world. You're at the polls index2.")
-
-def instructor(request):
+def instructor(request): #http://localhost:8000/ins
 	import mysql.connector
 	mydb = mysql.connector.connect(
 	  host="localhost", 
@@ -18,23 +15,19 @@ def instructor(request):
 
 	mycursor = mydb.cursor()
 
-	print('Instructor table')
 	sql="select instructor.id, instructor.name, instructor.dept_name, instructor.salary from instructor"
-	print(sql)
 
 	mycursor.execute(sql)
 	myresult = mycursor.fetchall()
-
-	print(mycursor.rowcount," instructors found")
 
 	s = "Instructor <br><br>"
 
 	for(name) in myresult:
-   		s = s + name[1] + " " + name[2] + "<br>"
+   		s = s + str(name[0]) + " " + name[1] + " " + name[2] + " " + str(name[3])+ "<br>"
 
 	return HttpResponse(s)
 
-def student(request):
+def student(request): #http://localhost:8000/stu
 	import mysql.connector
 	mydb = mysql.connector.connect(
 	  host="localhost", 
@@ -46,23 +39,19 @@ def student(request):
 
 	mycursor = mydb.cursor()
 
-	print('\nStudent table')
-	sql="select student .id, student .name, student .dept, student .total_credits from student"
-	print(sql)
+	sql="select student.id, student.name, student.dept, student.total_credits from student"
 
 	mycursor.execute(sql)
 	myresult = mycursor.fetchall()
-
-	print(mycursor.rowcount," students found")
 
 	s = "Student <br><br>"
 
 	for(name) in myresult:
-	   s = s + name[1] + name[2]
+	   s = s + " " + str(name[0]) + " "+ name[1] + " " + name[2] + " " + str(name[3]) + " " + "<br>"
 
 	return HttpResponse(s)
 
-def department(request):
+def department(request): #http://localhost:8000/dept/
 	import mysql.connector
 	mydb = mysql.connector.connect(
 	  host="localhost", 
@@ -74,22 +63,16 @@ def department(request):
 
 	mycursor = mydb.cursor()
 
-	print('\nDepartment table')
 	sql="select department.dept_name, department.building, department.budget from department"
-	print(sql)
 
 	mycursor.execute(sql)
 	myresult = mycursor.fetchall()
 
-	print(mycursor.rowcount," departments found")
-
 	s = "Department <br><br>"
 
 	for(name) in myresult:
-   		s = s + name[0] + name[1]
+   		s = s + name[0] + " " + name[1] + " " + str(name[2]) + " " + "<br>"
 
 	mycursor.close()
 	mydb.close()
 	return HttpResponse(s)
-
-
