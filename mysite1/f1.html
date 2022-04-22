@@ -1,0 +1,8 @@
+<form action="/success/" method="post">{% csrf_token %}
+    <!font size="+5">
+    <label for="your_name">Student: </label>
+    <!input id="your_name" type="text" name="your_name" value="{{ current_name }}">
+    <input type="submit" value="order by name" formaction="/f11/">
+    <input type="submit" value="order by dept" formaction="/f12/">
+    <input type="submit" value="order by salary" formaction="/f13/">
+</form>
