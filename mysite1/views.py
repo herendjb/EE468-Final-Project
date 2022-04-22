@@ -1,9 +1,108 @@
 from django.http import HttpResponse
+from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from .forms import NameForm
 
 def index(request):
     return HttpResponse("Hello, world.")
 
-def F1(request): #http://localhost:8000/f1
+def fail(request):
+    return HttpResponse("Failure of form")
+
+def success(request):
+    return HttpResponse("Success of form")
+
+def get_main(request):
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = NameForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            return HttpResponseRedirect('/thanks/')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = NameForm()
+
+    return render(request, 'main.html', {'form': form})
+
+def get_admin(request):
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = NameForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            return HttpResponseRedirect('/thanks/')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = NameForm()
+
+    return render(request, 'admin.html', {'form': form})
+
+def get_f1(request):
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = NameForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            return HttpResponseRedirect('/thanks/')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = NameForm()
+
+    return render(request, 'f1.html', {'form': form})
+
+def get_professor(request):
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = NameForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            return HttpResponseRedirect('/thanks/')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = NameForm()
+
+    return render(request, 'professor.html', {'form': form})
+
+def get_student(request):
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = NameForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            return HttpResponseRedirect('/thanks/')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = NameForm()
+
+    return render(request, 'student.html', {'form': form})
+
+def F1_1(request): #http://localhost:8000/f11
 	import mysql.connector
 	mydb = mysql.connector.connect(
 	  host="localhost", 
@@ -21,6 +120,54 @@ def F1(request): #http://localhost:8000/f1
 	myresult = mycursor.fetchall()
 
 	s = "Instructor ordered by name<br><br>"
+
+	for(name) in myresult:
+   		s = s + name[0] + "<br>"
+
+	return HttpResponse(s)
+
+def F1_2(request): #http://localhost:8000/f12
+	import mysql.connector
+	mydb = mysql.connector.connect(
+	  host="localhost",
+	  user="root",
+	  passwd='99410Victor!', #"mypassword",
+	  auth_plugin='mysql_native_password',
+	  database="university",
+	)
+
+	mycursor = mydb.cursor()
+
+	sql="select instructor.name from instructor order by instructor.dept_name"
+
+	mycursor.execute(sql)
+	myresult = mycursor.fetchall()
+
+	s = "Instructor ordered by department name<br><br>"
+
+	for(name) in myresult:
+   		s = s + name[0] + "<br>"
+
+	return HttpResponse(s)
+
+def F1_3(request): #http://localhost:8000/f13
+	import mysql.connector
+	mydb = mysql.connector.connect(
+	  host="localhost",
+	  user="root",
+	  passwd='99410Victor!', #"mypassword",
+	  auth_plugin='mysql_native_password',
+	  database="university",
+	)
+
+	mycursor = mydb.cursor()
+
+	sql="select instructor.name from instructor order by instructor.salary"
+
+	mycursor.execute(sql)
+	myresult = mycursor.fetchall()
+
+	s = "Instructor ordered by salary<br><br>"
 
 	for(name) in myresult:
    		s = s + name[0] + "<br>"
@@ -236,3 +383,5 @@ def department(request): #http://localhost:8000/dept/
 	mycursor.close()
 	mydb.close()
 	return HttpResponse(s)
+
+
