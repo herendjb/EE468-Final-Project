@@ -171,7 +171,7 @@ def F1_1(request): #http://localhost:8000/f11
 	mycursor.execute(sql)
 	myresult = mycursor.fetchall()
 
-	s = "Instructor ordered by name<br><br>"
+	s = "<h4>Instructor ordered by name<h4><br>"
 
 	for(name) in myresult:
    		s = s + name[0] + " " + name[1] + " " + str(name[2]) + "<br>"
@@ -195,7 +195,7 @@ def F1_2(request): #http://localhost:8000/f12
 	mycursor.execute(sql)
 	myresult = mycursor.fetchall()
 
-	s = "Instructor ordered by department name<br><br>"
+	s = "<h4>Instructor ordered by department name<h4><br>"
 
 	for(name) in myresult:
    		s = s + name[0] + " " + name[1] + " " + str(name[2]) + "<br>"
@@ -219,7 +219,7 @@ def F1_3(request): #http://localhost:8000/f13
 	mycursor.execute(sql)
 	myresult = mycursor.fetchall()
 
-	s = "Instructor ordered by salary<br><br>"
+	s = "<h4>Instructor ordered by salary<h4><br>"
 
 	for(name) in myresult:
    		s = s + name[0] + " " + name[1] + " " + str(name[2]) + "<br>"
@@ -243,7 +243,7 @@ def F2(request): #http://localhost:8000/f2
 	mycursor.execute(sql)
 	myresult = mycursor.fetchall()
 
-	s = "Table of min/max/avg salaries by dept<br><br>"
+	s = "<h4>Table of min/max/avg salaries by dept<h4><br>"
 
 	for(name) in myresult:
    		s = s + name[0] + " " + str(name[1]) + " " + str(name[2]) + " " + str(name[3]) + "<br>"
@@ -270,7 +270,7 @@ def F3(request): #http://localhost:8000/f3
 	mycursor.execute(sql)
 	myresult = mycursor.fetchall()
 
-	s = "Table of Professor Name, Department, and total number of students<br><br>"
+	s = "<h4>Table of Professor Name, Department, and total number of students<h4><br>"
 
 	for(name) in myresult:
    		s = s + name[0] + " " + name[1] + "<br>"
@@ -297,7 +297,7 @@ def F4(request): #http://localhost:8000/f4
 	mycursor.execute(sql)
 	myresult = mycursor.fetchall()
 
-	s = "Create the list of course sections and the number of students enrolled in each section that the professor taught in a given semester<br><br>"
+	s = "<h4>Create the list of course sections and the number of students enrolled in each section that the professor taught in a given semester<h4><br>"
 
 	for(name) in myresult:
    		s = s + name[0] + "<br>"
@@ -324,7 +324,7 @@ def F5(request): #http://localhost:8000/f5
 	mycursor.execute(sql)
 	myresult = mycursor.fetchall()
 
-	s = "Create the list of students enrolled in a course section taught by the professor in a given semester<br><br>"
+	s = "<h4>Create the list of students enrolled in a course section taught by the professor in a given semester<h4><br>"
 
 	for(name) in myresult:
    		s = s + name[0] + "<br>"
@@ -351,7 +351,7 @@ def F6(request): #http://localhost:8000/f6
 	mycursor.execute(sql)
 	myresult = mycursor.fetchall()
 
-	s = "Table courses offer by department in a given semester and year<br><br>"
+	s = "<h4>Table courses offer by department in a given semester and year<h4><br>"
 
 	for(name) in myresult:
    		s = s + name[0] + " " + str(name[1]) + " " + str(name[2]) + "<br>"
@@ -378,7 +378,7 @@ def instructor(request): #http://localhost:8000/ins
 	mycursor.execute(sql)
 	myresult = mycursor.fetchall()
 
-	s = "Instructor <br><br>"
+	s = "<h4>Instructor <h4><br><br>"
 
 	for(name) in myresult:
    		s = s + str(name[0]) + " " + name[1] + " " + name[2] + " " + str(name[3])+ "<br>"
@@ -402,7 +402,7 @@ def student(request): #http://localhost:8000/stu
 	mycursor.execute(sql)
 	myresult = mycursor.fetchall()
 
-	s = "Student <br><br>"
+	s = "<h4>Student <h4><br><br>"
 
 	for(name) in myresult:
 	   s = s + " " + str(name[0]) + " "+ name[1] + " " + name[2] + " " + str(name[3]) + " " + "<br>"
@@ -426,7 +426,7 @@ def department(request): #http://localhost:8000/dept/
 	mycursor.execute(sql)
 	myresult = mycursor.fetchall()
 
-	s = "Department <br><br>"
+	s = "<h4>Department <h4><br><br>"
 
 	for(name) in myresult:
    		s = s + name[0] + " " + name[1] + " " + str(name[2]) + " " + "<br>"
@@ -434,9 +434,3 @@ def department(request): #http://localhost:8000/dept/
 	mycursor.close()
 	mydb.close()
 	return HttpResponse(s)
-
-
-
-
-
-
